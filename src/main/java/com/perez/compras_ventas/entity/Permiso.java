@@ -1,5 +1,7 @@
 package com.perez.compras_ventas.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,12 @@ public class Permiso {
     @Column(name = "per_accion", length = 100)
     private String accion;
     
+
+    //Datos Auditoria
+    private LocalDateTime fechaCreacion;
+    private LocalDateTime fechaModificacion;
+    private Integer usuarioCreacion;
+    private Integer usuarioModificacion;
 
 //     @OneToMany(mappedBy = "permiso")
 // private List<PermisoRol> permisosRoles = new ArrayList<>();

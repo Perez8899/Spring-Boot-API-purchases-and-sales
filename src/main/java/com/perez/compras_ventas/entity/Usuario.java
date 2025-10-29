@@ -46,10 +46,10 @@ public class Usuario {
     private String password;
 
 
-@OneToMany(mappedBy = "usuario")
-private List<Nota> notas = new ArrayList<>();
+// @OneToMany(mappedBy = "usuario")
+// private List<Nota> notas = new ArrayList<>();
 
-@OneToMany(mappedBy = "usuario")
-private List<UsuarioRol> usuarioRoles = new ArrayList<>();
+// @OneToMany(mappedBy = "usuario")
+// private List<UsuarioRol> usuarioRoles = new ArrayList<>();
 
 }

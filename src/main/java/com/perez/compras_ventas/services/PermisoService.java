@@ -2,7 +2,8 @@ package com.perez.compras_ventas.services;
 
 import java.util.List;
 
-import com.perez.compras_ventas.response.PermisoResponse;
+import com.perez.compras_ventas.dto.request.PermisoRequest;
+import com.perez.compras_ventas.dto.response.PermisoResponse;
 
 
 public interface PermisoService {
@@ -11,10 +12,10 @@ public interface PermisoService {
 
     PermisoResponse findPermisoById(Integer id);
 
-    PermisoResponse createPermiso();
+    PermisoResponse createPermiso(PermisoRequest permisoRequest);
 
-    PermisoResponse updatePermiso();
+    PermisoResponse updatePermiso(Integer id, PermisoRequest permisoRequest);
 
-    PermisoResponse deletePermiso();
+    void deletePermiso(Integer id);
     
 }
