@@ -11,12 +11,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Usuario {
 
@@ -25,13 +29,18 @@ public class Usuario {
      @Column(name = "id_usu")
     private Integer idUsu;
 
+    @Column(nullable = false,length = 100)
     private String nombre;
+
+    @Column(nullable = false,length = 100)
     private String apellido;
 
     @Column(name = "fecha_nacimiento")
-    private LocalDate fecha_nacimiento;
+    private LocalDate fechaNacimiento;
 
+    @Column(length = 50)
     private String telefono;
+
     private String direccion;
 
     @Column(nullable = false, unique = true, length = 20)
@@ -41,8 +50,9 @@ public class Usuario {
     private String userName;
 
     @Column(nullable = false, length = 100, unique = true)
-    private String email;
+    private String correo;
 
+     @Column(nullable = false)
     private String password;
 
 
