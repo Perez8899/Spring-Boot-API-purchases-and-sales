@@ -4,25 +4,28 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import java.time.LocalDate;
+import lombok.Builder;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "almacen_producto")
 public class AlmacenProducto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_alm_prod")
     private Integer id;
     
-    @Column(name = "stock")
+    @Column(nullable=false)
     private Integer stock; 
     
     @Column(name = "fecha_actualizacion")
-    private LocalDate fechaActualizacion; 
+    private LocalDateTime fechaActualizacion; 
     
     @ManyToOne
     @JoinColumn(name = "id_alm")

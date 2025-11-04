@@ -5,32 +5,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
-import java.util.ArrayList;
-import java.util.List;
+import lombok.Builder;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "almacen")
 public class Almacen {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_alm")
     private Integer idAlm;
 
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
    
-    @Column(name = "codigo", length = 20)
+    @Column(length = 20)
     private String codigo;
 
-    // Relación con AlmacenProducto
-    @OneToMany(mappedBy = "almacen", cascade = CascadeType.ALL)
-    private List<AlmacenProducto> productosAlmacen = new ArrayList<>();
+    @ManyToOne
+    @Column(name = "id_usu")
+    private Sucursal sucursal;
 
 }

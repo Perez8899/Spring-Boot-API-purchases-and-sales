@@ -10,30 +10,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 public class Movimiento {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_mov")
     private Integer idMov;
 
+    @Column(nullable = false)
     private Integer cantidad;
 
-     @Column(name = "precio_unitario", precision = 10, scale = 2)
+     @Column(nullable = false, name = "precio_unitario", precision = 10, scale = 2)
     private BigDecimal precioUnitario;
 
-     @Column(name = "observacion", columnDefinition = "TEXT")
     private String observacion;
 
-    @Column(name = "tipo_movimiento", length = 20)
+    @Column(nullable = false, name = "tipo_movimiento", length = 20)
     private String tipoMovimiento;
+
 
    @ManyToOne
     @JoinColumn(name = "id_nota")

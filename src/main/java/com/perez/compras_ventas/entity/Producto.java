@@ -4,44 +4,45 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "producto")
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_prod")
     private Integer id;
 
+     @Column(length = 100, nullable = false)
     private String nombre;
     
-    @Column(columnDefinition = "TEXT")
+  
     private String descripcion;
 
     @Column(name = "codigo_barra", length = 100)
     private String codigoBarra;
    
+    @Column(length = 100)
     private String marca;
     
-    @Column(name = "precio_venta", precision = 10, scale = 2)
+    @Column(nullable = false, name = "precio_venta", precision = 10, scale = 2)
     private BigDecimal precioVenta;
 
     private String imagen;
     
+    @Column(nullable = false)
     private Boolean estado;
 
     @ManyToOne
     @JoinColumn(name = "id_categ")
     private Categoria categoria;
     
-    //Relación con AlmacenProducto
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
-    private List<AlmacenProducto> almacenesProducto = new ArrayList<>();
 }

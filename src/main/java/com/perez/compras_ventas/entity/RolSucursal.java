@@ -20,13 +20,13 @@ import lombok.Setter;
 public class RolSucursal {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_rol_suc")
     private Integer idRolSuc;
 
     @ManyToOne
-    @JoinColumn(name = "id_per")
-    private Permiso permiso;
+    @JoinColumn(name = "id_usu")
+    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_suc")

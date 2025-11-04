@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,28 +20,29 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 public class Nota {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_nota")
     private Integer idNota;
 
-    @Column(name = "fecha")
+    @Column(nullable = false)
     private LocalDateTime fecha;
 
     @Column(name = "tipo_nota", length = 20)
     private String tipoNota;
 
-     @Column(name = "descuento", precision = 10, scale = 2)
+     @Column(precision = 10, scale = 2)
     private BigDecimal descuento;
 
-    @Column(name = "total_calculado", precision = 10, scale = 2)
+    @Column(nullable = false, name = "total_calculado", precision = 10, scale = 2)
     private BigDecimal totalCalculado;
 
-   @Column(name = "observacion", columnDefinition = "TEXT")
     private String observacion;
+
 
     @ManyToOne
     @JoinColumn(name = "id_usu")
