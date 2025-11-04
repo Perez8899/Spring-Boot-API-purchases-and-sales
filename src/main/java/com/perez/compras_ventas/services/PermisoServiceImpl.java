@@ -19,6 +19,7 @@ public class PermisoServiceImpl implements PermisoService {
 
     private final PermisoRepository permisoRepository; //injection
 
+//-----------------------------------------------------------------In the users class, clean code is used.-----------------
     @Override
     public List<PermisoResponse> findAllPermiso() {
         List<Permiso> permisosRetrieved = permisoRepository.findAll();
@@ -97,7 +98,7 @@ public class PermisoServiceImpl implements PermisoService {
     }
 
     @Override
-    public void deletePermiso(Integer id) {
+    public void deletePermisoById(Integer id) {
         permisoRepository.deleteById(id);
     }
 

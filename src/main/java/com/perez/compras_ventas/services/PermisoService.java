@@ -5,7 +5,6 @@ import java.util.List;
 import com.perez.compras_ventas.dto.request.PermisoRequest;
 import com.perez.compras_ventas.dto.response.PermisoResponse;
 
-
 public interface PermisoService {
 
     List<PermisoResponse> findAllPermiso();
@@ -16,6 +15,6 @@ public interface PermisoService {
 
     PermisoResponse updatePermiso(Integer id, PermisoRequest permisoRequest);
 
-    void deletePermiso(Integer id);
-    
+    void deletePermisoById(Integer id);
+
 }

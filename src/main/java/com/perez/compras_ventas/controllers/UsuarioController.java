@@ -7,6 +7,7 @@ import com.perez.compras_ventas.dto.request.UsuarioRequest;
 import com.perez.compras_ventas.dto.response.UsuarioResponse;
 import com.perez.compras_ventas.services.UsuarioService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class UsuarioController {
     }
 
     @PostMapping()
-    public ResponseEntity<UsuarioResponse> createUsuario(@RequestBody UsuarioRequest usuarioRequest) {
+    public ResponseEntity<UsuarioResponse> createUsuario(@Valid @RequestBody UsuarioRequest usuarioRequest) {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.createUsuario(usuarioRequest));
     }
