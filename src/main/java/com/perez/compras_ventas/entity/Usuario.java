@@ -56,9 +56,11 @@ public class Usuario {
     @Column(nullable = false, length = 20)
     private String password;
 
+    private String estado;
+
     @ManyToMany
     @JoinTable( // no se crea la tabla UsuarioRol con @ManyToMany
             name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usu"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
-    private List<Rol> rol;
+    private List<Rol> roles;
 
 }
