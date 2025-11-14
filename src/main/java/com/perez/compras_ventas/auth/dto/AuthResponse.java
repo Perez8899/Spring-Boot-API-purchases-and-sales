@@ -13,7 +13,7 @@ public class AuthResponse {
 
     private String refreshToken;
 
-    private Long identifier;
+    private Integer identifier;
 
     private Long expiration;
 }
